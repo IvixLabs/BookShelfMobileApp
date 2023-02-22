@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['']" routerDirection="back">List</ion-button>
+    </ion-buttons>
+    <ion-title>Author</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form *ngIf="author">
+    <ion-item>
+      <ion-label position="floating">First name</ion-label>
+      <ion-input name="firstName" [(ngModel)]="author.firstName" #firstNameField="ngModel" [appServerSide]="errors$"></ion-input>
+      <ion-note slot="error" *ngIf="firstNameField.control.errors && firstNameField.control.errors['serverSide']">{{firstNameField.control.errors['serverSide']}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Middle name</ion-label>
+      <ion-input name="middleName" [(ngModel)]="author.middleName" #middleNameField="ngModel" [appServerSide]="errors$"></ion-input>
+      <ion-note slot="error" *ngIf="middleNameField.control.errors && middleNameField.control.errors['serverSide']">{{middleNameField.control.errors['serverSide']}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input name="lastName" [(ngModel)]="author.lastName" #lastNameField="ngModel" [appServerSide]="errors$"></ion-input>
+      <ion-note slot="error" *ngIf="lastNameField.control.errors && lastNameField.control.errors['serverSide']">{{lastNameField.control.errors['serverSide']}}</ion-note>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="block" (click)="save()">Save</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+</ion-content>

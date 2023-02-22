@@ -1,19 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Welcome to paradise</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>{{jwt|async}}</p>
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Login</ion-label>
-      <ion-input type="text" name="username" required [(ngModel)]="username"></ion-input>
+      <ion-input type="text" name="username" required [(ngModel)]="username" (ngModelChange)="onDataChanged()"></ion-input>
+      <ion-note slot="error" *ngIf="authFail">Invalid email</ion-note>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" name="password" required [(ngModel)]="password"></ion-input>
+      <ion-input type="password" name="password" required [(ngModel)]="password" (ngModelChange)="onDataChanged()"></ion-input>
     </ion-item>
     <ion-row>
       <ion-col>
