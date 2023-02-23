@@ -14,23 +14,19 @@ const routes: Routes = [
         loadChildren: () => import('../author/author.module').then(m => m.AuthorModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-      },
-      {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'books',
+        loadChildren: () => import('../book/book.module').then(m => m.BookModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/authors',
+        redirectTo: 'authors',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/authors',
+    redirectTo: 'authors',
     pathMatch: 'full'
   }
 ];

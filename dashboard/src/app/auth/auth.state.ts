@@ -10,7 +10,6 @@ export class AuthState {
 
   private lastUrl$ = new BehaviorSubject<string>('/tabs')
 
-
   constructor() {
     console.log('AuthState constructor')
   }

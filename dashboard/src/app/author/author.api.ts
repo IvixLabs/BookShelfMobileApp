@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
 import {environment} from '../../environments/environment'
 import {AuthorFormDto} from './dto/author-form.dto'
 import {Observable} from "rxjs";
+import {RefAuthorDto} from "./dto/ref-author.dto";
 
 @Injectable()
 export class AuthorApi {
@@ -48,7 +49,7 @@ export class AuthorApi {
       )
   }
 
-  getAuthorSuggestions(token: string, first: number, rows: number, filters: Map<string, string>) {
+  getAuthorSuggestions(token: string, first: number, rows: number, filters: Map<string, string>):Observable<RefAuthorDto[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       accept: 'application/json',
@@ -62,7 +63,7 @@ export class AuthorApi {
     })
 
     return this.http
-      .get<any>(
+      .get<RefAuthorDto[]>(
         environment.apiHost + '/api/authors/suggestions',
         {headers, params}
       )

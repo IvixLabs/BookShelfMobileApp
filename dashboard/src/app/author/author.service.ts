@@ -3,6 +3,7 @@ import {Observable} from 'rxjs'
 import {AuthorApi} from './author.api'
 import {AuthorFormDto} from './dto/author-form.dto'
 import {AuthState} from "../auth/auth.state";
+import {RefAuthorDto} from "./dto/ref-author.dto";
 
 @Injectable()
 export class AuthorService {
@@ -32,7 +33,7 @@ export class AuthorService {
 
   }
 
-  getAuthorSuggestions(first: number, rows: number, filters: Map<string, string>): Observable<any> {
+  getAuthorSuggestions(first: number, rows: number, filters: Map<string, string>): Observable<RefAuthorDto[]> {
 
     const token = this.authState.getToken()
     if (token) {

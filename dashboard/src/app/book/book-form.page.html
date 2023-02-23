@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['../']" routerDirection="back">Book list</ion-button>
+    </ion-buttons>
+    <ion-title>Book</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form *ngIf="book">
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input name="name" [(ngModel)]="book.name" #nameField="ngModel" [appServerSide]="errors$"></ion-input>
+      <ion-note slot="error" *ngIf="nameField.control.errors && nameField.control.errors['serverSide']">{{nameField.control.errors['serverSide']}}</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-input name="description" [(ngModel)]="book.description" #descriptionField="ngModel" [appServerSide]="errors$"></ion-input>
+      <ion-note slot="error" *ngIf="descriptionField.control.errors && descriptionField.control.errors['serverSide']">{{descriptionField.control.errors['serverSide']}}</ion-note>
+    </ion-item>
+
+    <ion-item [button]="true" (click)="openAuthors()" [detail]="false">
+      <ion-label position="stacked">Author</ion-label>
+      <p *ngIf="book && book.author">{{book.author.name}}</p>
+      <ion-input name="author" [hidden]="true" [(ngModel)]="book.author" #authorField="ngModel" [appServerSide]="errors$"></ion-input>
+      <ion-note slot="error" *ngIf="authorField.control.errors && authorField.control.errors['serverSide']">{{authorField.control.errors['serverSide']}}</ion-note>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="block" (click)="save()">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+
+
+<ion-modal>
+  <ng-template>
+    <app-typeahead
+      class="ion-page"
+      title="Authors"
+      [loading]="searchingAuthors"
+      [items]="authors"
+      (itemSelected)="selectAuthor($event)"
+      (searchChanged)="searchAuthors($event)"
+      (selectionCancel)="modal.dismiss()"
+    ></app-typeahead>
+  </ng-template>
+</ion-modal>
