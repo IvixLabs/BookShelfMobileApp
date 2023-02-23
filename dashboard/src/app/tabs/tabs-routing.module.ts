@@ -5,7 +5,7 @@ import {AuthGuard} from "../auth/auth.guard";
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     canActivate: [AuthGuard],
     component: TabsPage,
     children: [
