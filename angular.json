@@ -32,8 +32,8 @@
               },
               {
                 "glob": "app.manifest",
-                "input": "app.manifest",
-                "output": "app.manifest"
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
