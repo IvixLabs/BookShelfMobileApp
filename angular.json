@@ -29,6 +29,11 @@
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
+              },
+              {
+                "glob": "app.manifest",
+                "input": "app.manifest",
+                "output": "app.manifest"
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],

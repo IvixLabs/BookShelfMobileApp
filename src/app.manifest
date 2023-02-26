@@ -1,0 +1,7 @@
+{
+  "name": "Progressive Web App",
+  "short_name": "Mobile app",
+  "description": "",
+  "start_url": "/",
+  "display": "fullscreen",
+}
