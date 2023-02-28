@@ -1,7 +1,8 @@
 {
-  "name": "Progressive Web App",
-  "short_name": "Mobile app",
-  "description": "",
+  "name": "Bookshelf",
+  "short_name": "Bookshelf",
+  "description": "Bookshelf pwa application",
   "start_url": "/",
   "display": "fullscreen",
+  "scope": "/"
 }
